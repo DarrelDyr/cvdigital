@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darva Aryasatya - Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f; /* Background Gelap */
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Container utama agar tampilan seperti HP di layar besar */
+        .container {
+            max-width: 480px; /* Lebar maksimal seukuran HP */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #0f0f0f;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 30px;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #facc15; /* Border Kuning */
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3); /* Efek Glow */
+        }
+
+        .greeting {
+            color: #facc15; /* Warna Kuning */
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .role {
+            display: inline-block;
+            background: linear-gradient(180deg, transparent 60%, rgba(250, 204, 21, 0.3) 60%);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .sub-hero {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: justify;
+            font-size: 0.85rem;
+            color: #ddd;
+        }
+        
+        .about-card p {
+            margin-bottom: 10px;
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 3px;
+            background-color: #facc15;
+            margin-right: 10px;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 1px solid #333;
+            color: #888;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            border-color: #facc15;
+            color: #facc15;
+            background-color: rgba(250, 204, 21, 0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 Kolom */
+            gap: 12px;
+        }
+
+        .skill-item {
+            background-color: #1a1a1a;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+        
+        .skill-item:hover {
+            border-color: #facc15;
+            transform: translateY(-2px);
+        }
+
+        .skill-item i {
+            font-size: 1.5rem;
+        }
+
+        /* Warna-warni Icon (Custom) */
+        .fa-html5 { color: #e34f26; }
+        .fa-css3-alt { color: #1572b6; }
+        .fa-php { color: #777bb4; }
+        .fa-js { color: #f7df1e; }
+        .fa-laravel { color: #ff2d20; }
+        .fa-vuejs { color: #4fc08d; }
+        .fa-node { color: #339933; }
+        .fa-react { color: #61dafb; }
+
+        /* --- PROJECTS SECTION --- */
+        .project-card {
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #333;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .tech-stack-text {
+            font-size: 0.75rem;
+            color: #facc15;
+            font-weight: 600;
+        }
+
+        /* --- CERTIFICATES --- */
+        .cert-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+        }
+
+        .cert-img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .cert-title {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #ddd;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 0.8rem;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <section class="hero">
+            <div class="profile-wrapper">
+                <img src="https://i.pravatar.cc/300?img=12" alt="Profile" class="profile-img">
+            </div>
+            <p class="greeting">Hello World, I'm</p>
+            <h1 class="name">Darva Aryasatya Putra Hermawan</h1>
+            <span class="role">Backend Developer</span>
+            <p class="sub-hero">Welcome to My personal website. 👋</p>
+        </section>
+
+        <section class="about">
+            <div class="about-card">
+                <p>Hi everyone! I'm Darva Aryasatya Putra Hermawan, a Web Developer from Cimahi, West Java. I've been experiencing the excitement of the software engineering world for 3 years now, especially as a backend developer.</p>
+                <p>As a web developer, my task is to design and build websites according to the needs and expectations of clients. I truly enjoy what I'm doing right now.</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skills-tabs">
+                <button class="tab-btn active">Tech Stack</button>
+                <button class="tab-btn">Tools</button>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="skill-item"><i class="fab fa-php"></i> PHP</div>
+                <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                <div class="skill-item"><i class="devicon-codeigniter-plain colored"></i> Codeigniter</div>
+                <div class="skill-item"><i class="fab fa-vuejs"></i> VueJS</div>
+                <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                <div class="skill-item"><i class="fab fa-node"></i> NodeJS</div>
+                <div class="skill-item"><i class="devicon-tailwindcss-original colored"></i> Tailwind</div>
+                <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                <div class="skill-item"><i class="fab fa-react"></i> ReactJS</div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <br>
+            <h2 class="section-title">Past Project Experience</h2>
+            <p style="color:#888; margin-bottom: 20px; font-size: 0.9rem;">Explore the projects I've worked on so far</p>
+
+            <div class="project-card">
+                <img src="https://placehold.co/600x400/222/eee?text=Project+Archie" class="project-img" alt="Archie Project">
+                <div class="project-content">
+                    <h3 class="project-title">Archie</h3>
+                    <p class="project-desc">"Archie" is an application designed to facilitate the management of correspondence and letter archiving in school environments.</p>
+                    <p class="tech-stack-text">Laravel 10, Bootstrap 5, MySQL</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                 <img src="https://placehold.co/600x400/222/eee?text=Tabungan+Siswa" class="project-img" alt="Tabungan Siswa">
+                <div class="project-content">
+                    <h3 class="project-title">Tabungan Siswa</h3>
+                    <p class="project-desc">This application helps schools to organize and track student savings, providing transparency.</p>
+                    <p class="tech-stack-text">Laravel 10, Bootstrap 5, MySQL</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                 <img src="https://placehold.co/600x400/222/eee?text=To-Do+List" class="project-img" alt="To Do List">
+                <div class="project-content">
+                    <h3 class="project-title">To-Do-List</h3>
+                    <p class="project-desc">This To-Do List application is a simple web-based tool that allows users to effectively manage and track their tasks.</p>
+                    <p class="tech-stack-text">PHP Native</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="certificates">
+            <h2 class="section-title">Certificates</h2>
+            
+            <div class="cert-card">
+                <img src="https://placehold.co/600x400/111/444?text=Certificate+1" class="cert-img" alt="Certificate">
+                <div class="cert-title">Dicoding - Cloud Practitioner</div>
+            </div>
+            
+            <div class="cert-card">
+                <img src="https://placehold.co/600x400/111/444?text=Certificate+2" class="cert-img" alt="Certificate">
+                <div class="cert-title">Codepolitan - JavaScript</div>
+            </div>
+
+             <div class="cert-card">
+                <img src="https://placehold.co/600x400/111/444?text=Certificate+3" class="cert-img" alt="Certificate">
+                <div class="cert-title">Oracle - Java Programming</div>
+            </div>
+
+        </section>
+
+        <footer>
+            &copy; 2024 Darva Aryasatya. All Rights Reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
