@@ -84,6 +84,10 @@
             color: #cccccc;
         }
 
+        about {
+            text-align: center;
+        }
+
         /* --- FOOTER --- */
         footer {
             text-align: center;
@@ -94,7 +98,31 @@
             margin-top: 20px;
         }
 
-    </style>
+         .sertifikat {
+            display: flex;
+            flex-wrap: wrap; /* Agar gambar turun ke bawah */
+            gap: 20px;       /* Jarak antar gambar */
+            justify-content: center;
+        }
+
+          .sertifikat-item {
+            width: calc(50% - 20px); /* 50% lebar dikurangi jarak gap */
+            box-sizing: border-box;
+        }
+
+          .sertifikat-item img {
+            width: 100%;     /* Gambar mengikuti lebar kontainer */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+          /* Agar di HP tampil 1 gambar saja per baris */
+          @media (max-width: 600px) {
+            .sertifikat-item {
+              width: 100%;
+
+     </style>
 </head>
 <body>
 
@@ -116,9 +144,14 @@
                 <p>Hello.</p>
             </div>
         </section>
-        <section class="certificate">
+        <section class="sertifikat">
             <p>These are all the certificates i got at SMKN 1 Cimahi School</p>
-            <img src="sertifikatidnetworkers.png" alt="sertifikat digital">
+            <div class="sertifikat-item">
+                <img src="sertifikatidnetworkers.png" alt="sertifikat digital 1">
+            </div>
+            <div class="sertifikat-item">
+                <img src="sertifikatidnetworkers.png" alt="sertifikat digital 2">
+            </div>
         </section>
         <footer>
             &copy; .Muhammad Darrel Danadyaksa R.
