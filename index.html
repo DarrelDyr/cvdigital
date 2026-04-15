@@ -88,6 +88,34 @@
             text-align: center;
         }
 
+        sertifikat{
+            text-decoration: underline;
+        }
+        
+        .sertifikat {
+            display: flex;
+            flex-wrap: wrap; /* Agar gambar turun ke bawah */
+            gap: 20px;       /* Jarak antar gambar */
+            justify-content: center;
+        }
+
+        .sertifikat-item {
+            width: calc(50% - 20px); /* 50% lebar dikurangi jarak gap */
+            box-sizing: border-box;
+        }
+
+        .sertifikat-item img {
+            width: 100%;     /* Gambar mengikuti lebar kontainer */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+          /* Agar di HP tampil 1 gambar saja per baris */
+        @media (max-width: 600px) {
+        .sertifikat-item {
+            width: 100%;
+
         /* --- FOOTER --- */
         footer {
             text-align: center;
@@ -97,30 +125,6 @@
             border-top: 1px solid #333;
             margin-top: 20px;
         }
-
-         .sertifikat {
-            display: flex;
-            flex-wrap: wrap; /* Agar gambar turun ke bawah */
-            gap: 20px;       /* Jarak antar gambar */
-            justify-content: center;
-        }
-
-          .sertifikat-item {
-            width: calc(50% - 20px); /* 50% lebar dikurangi jarak gap */
-            box-sizing: border-box;
-        }
-
-          .sertifikat-item img {
-            width: 100%;     /* Gambar mengikuti lebar kontainer */
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-          /* Agar di HP tampil 1 gambar saja per baris */
-          @media (max-width: 600px) {
-            .sertifikat-item {
-              width: 100%;
 
      </style>
 </head>
